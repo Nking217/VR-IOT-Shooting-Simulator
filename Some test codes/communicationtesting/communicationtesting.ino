@@ -20,6 +20,7 @@ int _State;
 
 void setup(){
   Serial.begin(9600);
+  _State = STATE_DISCONNECTED;
   waitForConnection();
 }
 
@@ -38,6 +39,7 @@ void loop(){
 }
 
 void waitForConnection(){ //Making sure that there is a connection btween Unity and the ESP
+  setState(STATE_DISCONNECTED); //Updating the state of serial connection to: disconnected
   bool Wait = true;
   while(wait){
     if(Serial.available() > 0){ //if there is more than 0 bit in the serial buffer;
