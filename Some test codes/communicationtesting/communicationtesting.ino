@@ -19,9 +19,10 @@ byte _ConnectionStatus = CONNECTION_STATUS_DISCONNECTED;
 
 #define RXD2 16 //RX port for the second serial port.
 #define TXD2 17 //TX port for the second serial port.
-
+#define BUTTON_PIN 4
 void setup(){
   Serial.begin(9600);
+  pinMode(BUTTON_PIN, INPUT);
   Serial2.begin(9600,SERIAL_8N1,RXD2,TXD2); //Serial port for debuggin on a seprate Arduino microcontroller
   _State = STATE_DISCONNECTED;
   waitForConnection();
@@ -33,16 +34,25 @@ void loop(){
     sBuffer = Serial.readStringUntil('\n');
 
   if(_ConnectionStatus == CONNECTION_STATUS_DISCONNECTED){
-    waitForConnection();
+    waitForConnection(); //Not running the rest of the code until ESP and Unity are connected.
   }
   
   switch(sBuffer){
-    case startsWith(ISREADY){
+    case startsWith(ISREADY):
       setState(STATE_READY);
-    }
-    case startsWith(GAMEMODE){
-      
-    }
+      Serial2.println("Unity and ESP are connected and ready");
+      break;
+    
+    case startsWith(GAMEMODE):
+      Serial2.println("Game has started");
+      setState(STATE_GAME);
+      gameOn();
+      break;
+    
+    case startsWith(STOPGAME):
+      Serial2.println("Error: GAMESTOP Command was read on the main loop function check your code...");
+      setState(STATE_READY);
+      break;
   }
   
   
@@ -80,9 +90,13 @@ void gameOn(){
         setState(STATE_READY); //Updating the state of the system.
       }
       else{
+        /*
         if(button == 1){
           Serial.write(FIRECOMMAND);
         }
+        */
+        //Fire test code:
+        Serial.println(FIRECOMMAND);
         //sending command to unity to fire.
         //making a haptic feedback for the Rifle.
         //making a sound feedback for the Rifle.
