@@ -1,9 +1,3 @@
-/// - Command prefix - /// (Not sure)
-// c - Innisiate the connection btween the ESP and Unity.
-// g - Game, game mode - Unity is waiting for incoming bytes from the ESP, until Unity sends s (stop command).
-// s - Stop - stopping the game mode on the ESP (stop sending bytes every time the button is pressed).
-// e - End - ending the connection between the ESP and Unity.
-//////////////////////////
 #define CONNECTION_STATUS_DISCONNECTED 0
 #define CONNECTION_STATUS_CONNECTED 1
 
@@ -28,7 +22,7 @@ byte _ConnectionStatus = CONNECTION_STATUS_DISCONNECTED;
 
 void setup(){
   Serial.begin(9600);
-  //Serial2.begin(115200,RXD2,TXD2); //Serial port for debuggin on a seprate Arduino microcontroller
+  Serial2.begin(9600,SERIAL_8N1,RXD2,TXD2); //Serial port for debuggin on a seprate Arduino microcontroller
   _State = STATE_DISCONNECTED;
   waitForConnection();
 }
@@ -44,7 +38,10 @@ void loop(){
   
   switch(sBuffer){
     case startsWith(ISREADY){
-            
+      setState(STATE_READY);
+    }
+    case startsWith(GAMEMODE){
+      
     }
   }
   
@@ -53,12 +50,14 @@ void loop(){
 
 void waitForConnection(){ //Making sure that there is a connection btween Unity and the ESP
   bool Wait = true;
+  Serial2.print("Waiting for connection");
   while(wait){
     if(Serial.available() > 0){ //if there is more than 0 bit in the serial buffer;
       sBuffer = Serial.readStringUntil('\n');
       if(sBuffer == ISAVL){
         setState(STATE_CONNECTED);
         Serial.write(ACK);
+        Serial2.print("Connected");
         Wait = false;
       }
     }
@@ -80,11 +79,14 @@ void gameOn(){
         isGame = false; //Ending the game loop.
         setState(STATE_READY); //Updating the state of the system.
       }
-      else if(gBuffer == FIRE_COMMAND){
+      else{
+        if(button == 1){
+          Serial.write(FIRECOMMAND);
+        }
+        //sending command to unity to fire.
         //making a haptic feedback for the Rifle.
         //making a sound feedback for the Rifle.
       }
     }
   }
-  
 }
