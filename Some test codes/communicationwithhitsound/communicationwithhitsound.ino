@@ -5,9 +5,11 @@
 
 XT_Wav_Class Sound(sample);
 XT_DAC_Audio_Class DacAudio(25,0);
+String FIRECOMMAND = "FIRE"; //ESP sends command to Unity to fire. *String testing
+String HITCONFIRM = "HIT"; //Unity sends a message to the ESP to confirm that the bullet hit the target. *String testing
 
-const char FIRECOMMAND[] = "FIRE\n";//ESP sends command to Unity to fire.
-const char HITCONFIRM[] = "HIT"; //Unity sends a message to the ESP to confirm that the bullet hit the target.
+//const char FIRECOMMAND[] = "FIRE";//ESP sends command to Unity to fire.
+//const char HITCONFIRM[] = "HIT"; //Unity sends a message to the ESP to confirm that the bullet hit the target.
 
 bool val;
 bool lastVal;
@@ -20,9 +22,10 @@ void setup() {
 }
 
 void loop() {
+  DacAudio.FillBuffer(); //Load the sound buffer every time even if we are not playing any sound.
   val = digitalRead(TRIG_PORT);
   if(val == HIGH && lastVal == LOW){
-    Serial.print(FIRECOMMAND);
+    Serial.println(FIRECOMMAND);
     lastVal = HIGH;
   }
   else if(val == LOW && lastVal == HIGH){
@@ -31,11 +34,11 @@ void loop() {
   
   if(Serial.available() > 0){
     sBuffer = Serial.readStringUntil('\n');
-    Serial.println(sBuffer);
+    //Serial.println(sBuffer);
     if(sBuffer == HITCONFIRM){
       //Hit confirmed.
       //Play the sound.
-      DacAudio.FillBuffer();
+      //Serial.println("Hit confirmed");
       if(Sound.Playing==false)
         DacAudio.Play(&Sound);
     }
