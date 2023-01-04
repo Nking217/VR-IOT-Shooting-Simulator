@@ -369,6 +369,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
 "Assets/bulletScript.cs"
 "Assets/GameFunctionality.cs"
+"Assets/Scenes/Home Screen/StartGameScript.cs"
+"Assets/SerialManager.cs"
 -langversion:9.0
 
 /deterministic

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/SimpleNaturePack_Demo.unity
+- path: Assets/Scenes/Home Screen/Home Screen.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

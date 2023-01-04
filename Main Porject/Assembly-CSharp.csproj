@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\bulletScript.cs" />
     <Compile Include="Assets\GameFunctionality.cs" />
+    <Compile Include="Assets\Scenes\Home Screen\StartGameScript.cs" />
+    <Compile Include="Assets\SerialManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\___www.unityassetcollection.com___.txt" />
