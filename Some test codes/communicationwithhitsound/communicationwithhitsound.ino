@@ -19,6 +19,9 @@ String sBuffer;
 void setup() {
   Serial.begin(9600);
   pinMode(TRIG_PORT, INPUT);
+  delay(5000);
+  Serial.println();
+  Serial.println("START");
 }
 
 void loop() {

@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.8996588, z: -0, w: 0.43659374}
   m_LocalPosition: {x: 13.528, y: 2.684, z: -2.716}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,14 +55,16 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: da93a98ffd9e66e4e8ac50cb01d7faa2, type: 2}
+  - {fileID: 2100000, guid: 4bfc85f6e4968ab4b9efd1aab4927d45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!135 &7065301632097203607
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7065301632097203608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0048c49f995906c4a94788695f383752, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f45d47225ac94c4294ceb97665a4ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TargetPosition: {x: -10.3, y: 3.060813, z: -1.09}

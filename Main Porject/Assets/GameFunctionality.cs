@@ -7,9 +7,6 @@ using Input = UnityEngine.Input;
 using System.IO.Ports;
 using System;
 
-
-
-
 public class GameFunctionality : MonoBehaviour
 {
     public GameObject prefab;
@@ -31,7 +28,7 @@ public class GameFunctionality : MonoBehaviour
             //Apply a force to this Rigidbody in direction of this GameObjects up axis
             Rigidbody bullet_rigidbody = bullet.GetComponent<Rigidbody>();
             bullet_rigidbody.AddForce(-1 * transform.right * 2500f);
-            bullet_rigidbody.AddForce(transform.up * 500f);
+            bullet_rigidbody.AddForce(transform.up * 400f);
         }
         
         /*
@@ -46,19 +43,4 @@ public class GameFunctionality : MonoBehaviour
 
 
     }
-    
-
-    /*
-    void startCommunication() //Opening the serial port and sending a signal to the ESP to start the game.
-    {
-        if (!serialPort.IsOpen)
-        {
-            serialPort.Open();
-        }
-        else
-        {
-            serialPort.Write("READY"); //Sending a message to the ESP to enable the game functionality. 
-        }
-    }
-    */
 }

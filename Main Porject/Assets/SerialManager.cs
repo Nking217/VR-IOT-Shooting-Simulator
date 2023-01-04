@@ -6,8 +6,7 @@ using UnityEngine.Windows;
 using Input = UnityEngine.Input;
 using System.IO.Ports;
 using System;
-using System.Collections;
-using System.Net.Http.Headers;
+
 
 public class SerialManager : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class SerialManager : MonoBehaviour
     void Start()
     {
         serialOpen();
+        Debug.Log("SerialManager has started");
     }
 
     // Update is called once per frame
