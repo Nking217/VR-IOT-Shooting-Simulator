@@ -17,7 +17,7 @@ bool lastVal;
 String sBuffer;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(TRIG_PORT, INPUT);
   delay(5000);
   Serial.println();
