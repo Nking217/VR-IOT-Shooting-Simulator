@@ -6,7 +6,7 @@ using UnityEngine.Windows;
 using Input = UnityEngine.Input;
 using System.IO.Ports;
 using System;
-
+using UnityEditor.PackageManager;
 
 public class SerialManager : MonoBehaviour
 {
@@ -60,7 +60,15 @@ public class SerialManager : MonoBehaviour
         }
         return var;
     }
-
+    public static void serialManagerPrint()
+    {
+        string var = serialManagerRead();
+        if(var != null)
+        {
+            Debug.Log(var);
+        }
+        
+    }
     public static void serialManagerWrite(string var) //Function for sending data to the serial port
     {
         try
@@ -95,6 +103,19 @@ public class SerialManager : MonoBehaviour
     {
         string var = serialManagerRead();
         if(var == "START")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static bool checkGameStop()
+    {
+        string var = serialManagerRead();
+        if (var == "STOP")
         {
             return true;
         }

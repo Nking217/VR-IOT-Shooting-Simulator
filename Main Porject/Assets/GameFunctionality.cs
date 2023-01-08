@@ -6,6 +6,7 @@ using UnityEngine.Windows;
 using Input = UnityEngine.Input;
 using System.IO.Ports;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameFunctionality : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class GameFunctionality : MonoBehaviour
             bullet_rigidbody.AddForce(-1 * transform.right * 2500f);
             bullet_rigidbody.AddForce(transform.up * 400f);
         }
+        else if (SerialManager.checkGameStop())
+        {
+            SceneManager.LoadScene("Home Screen");
+        }
+        SerialManager.serialManagerPrint();
+        
         
         /*
         // Code for shooting the ball from the cannon (if something happens...)

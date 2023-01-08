@@ -24,7 +24,7 @@ public class bulletScript : MonoBehaviour
     {
         float distance = Vector3.Distance(bullet.transform.position, TargetPosition);
         
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if(distance <= 3)
         {
             Destroy(bullet);

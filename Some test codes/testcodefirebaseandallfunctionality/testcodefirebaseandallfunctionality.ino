@@ -34,8 +34,8 @@ String HITCONFIRM = "HIT"; //Unity sends a message to the ESP to confirm that th
 
 
 // Insert your network credentials
-#define WIFI_SSID "NAVE"
-#define WIFI_PASSWORD "0524424546"
+#define WIFI_SSID "Kinneret College"
+#define WIFI_PASSWORD ""
 
 // Insert Firebase project API Key
 #define API_KEY "AIzaSyBJx_urLrpl3-snrVJVi965m-vJ_4E8DN0"
@@ -131,15 +131,31 @@ void loop() {
       Serial.println("START");
       wason = 1;
     }
+    
     val = digitalRead(TRIG_PORT);
     if(val == HIGH && lastVal == LOW){
       Serial.println(FIRECOMMAND);
       lastVal = HIGH;
-      delay(50);
+      //delay(50);
     }
     else if(val == LOW && lastVal == HIGH){
       lastVal = LOW;
-      delay(50);
+      //delay(50);
+    }
+
+    if(Serial.available() > 0){
+      sBuffer = Serial.readStringUntil('\n');
+      if(sBuffer == HITCONFIRM){
+        if(Sound.Playing==false)
+          DacAudio.Play(&Sound);
+      }
+    }
+
+  }
+  else if(intValue == 0){
+    if(wason == 1){
+      Serial.println("STOP");
+      wason = 0;
     }
   }
 }
