@@ -34,8 +34,8 @@ String HITCONFIRM = "HIT"; //Unity sends a message to the ESP to confirm that th
 
 
 // Insert your network credentials
-#define WIFI_SSID "Kinneret College"
-#define WIFI_PASSWORD ""
+#define WIFI_SSID "NAVE"
+#define WIFI_PASSWORD "0524424546"
 
 // Insert Firebase project API Key
 #define API_KEY "AIzaSyBJx_urLrpl3-snrVJVi965m-vJ_4E8DN0"
@@ -135,9 +135,11 @@ void loop() {
     if(val == HIGH && lastVal == LOW){
       Serial.println(FIRECOMMAND);
       lastVal = HIGH;
+      delay(50);
     }
     else if(val == LOW && lastVal == HIGH){
       lastVal = LOW;
+      delay(50);
     }
   }
 }
