@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 5cc538c453af421469491da15e549740
+timeCreated: 1515444617
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Fire_mod
+    100002: Fire_mod_end
+    100004: flap_Bullet
+    100006: flap_Bullet_end
+    100008: M16A4
+    100010: //RootNode
+    100012: M16A4.001
+    100014: M16A4_rigged
+    100016: Magazine
+    100018: Magazine_end
+    100020: Main
+    100022: Reload
+    100024: Reload_end
+    100026: Scope_a1
+    100028: Scope_a2
+    100030: Trigger
+    100032: Trigger_end
+    400000: Fire_mod
+    400002: Fire_mod_end
+    400004: flap_Bullet
+    400006: flap_Bullet_end
+    400008: M16A4
+    400010: //RootNode
+    400012: M16A4.001
+    400014: M16A4_rigged
+    400016: Magazine
+    400018: Magazine_end
+    400020: Main
+    400022: Reload
+    400024: Reload_end
+    400026: Scope_a1
+    400028: Scope_a2
+    400030: Trigger
+    400032: Trigger_end
+    2300000: Scope_a1
+    2300002: Scope_a2
+    3300000: Scope_a1
+    3300002: Scope_a2
+    4300000: M16A4.001
+    4300002: M16A4
+    4300004: Scope_a2
+    4300006: Scope_a1
+    9500000: //RootNode
+    13700000: M16A4
+    13700002: M16A4.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bullets_in_magazine
+    second: {fileID: 2100000, guid: c8e889d1be1e866489686442dcf38065, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Font
+    second: {fileID: 2100000, guid: 7e93f679e9c4c1b4b9746d3b5b08c767, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 84b7863a9cbfcd14eaa0790f22f64496, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main_01
+    second: {fileID: 2100000, guid: bd3f10e0783e26b408b6319a80d13a41, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main_02
+    second: {fileID: 2100000, guid: 600ba427964e28a41b2f7705139962bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scope_a1
+    second: {fileID: 2100000, guid: 4fa743aabd558904c9b0219b7adcdfb2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scope_a2
+    second: {fileID: 2100000, guid: daf0cd67f99a2264bb16e7df42af692a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
