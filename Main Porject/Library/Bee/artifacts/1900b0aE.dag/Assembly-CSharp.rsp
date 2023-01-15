@@ -367,6 +367,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+"Assets/BigRookGames/_AssetPacks/Stylized Weapon Pack/M4 Scoped Assault Rifle/Scripts/GunfireController.cs"
+"Assets/PlayerScript.cs"
 "Assets/Scripts/bulletScript.cs"
 "Assets/Scripts/GameFunctionality.cs"
 "Assets/Scripts/SerialManager.cs"
