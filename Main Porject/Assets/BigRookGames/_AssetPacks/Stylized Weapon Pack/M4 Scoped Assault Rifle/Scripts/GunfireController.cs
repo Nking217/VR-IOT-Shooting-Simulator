@@ -82,6 +82,7 @@ namespace BigRookGames.Weapons
             if (projectilePrefab != null)
             {
                 GameObject newProjectile = Instantiate(projectilePrefab, muzzlePosition.transform.position, muzzlePosition.transform.rotation, transform);
+                //newProjectile.AddComponent<Rigidbody>().AddForce(transform.forward*1000);
             }
 
             // --- Disable any gameobjects, if needed ---

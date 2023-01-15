@@ -7,6 +7,7 @@ using System;
 public class bulletScript : MonoBehaviour
 {
     public Vector3 TargetPosition;
+    public int distanceCheck = 1;
     public GameObject bullet;
     
     
@@ -22,10 +23,11 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float distance = Vector3.Distance(bullet.transform.position, TargetPosition);
         
-        //Debug.Log(distance);
-        if(distance <= 3)
+        Debug.Log(distance);
+        if(distance <= distanceCheck)
         {
             Destroy(bullet);
             SerialManager.sendHitConfirmation();
@@ -33,8 +35,15 @@ public class bulletScript : MonoBehaviour
             // serialPort.WriteLine("HIT");
            
         }
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Destroy(bullet);
+        //Debug.Log("Hit");
+        //SerialManager.sendHitConfirmation();
     }
 
 
-    
+
 }
