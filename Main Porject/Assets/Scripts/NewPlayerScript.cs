@@ -43,7 +43,7 @@ public class NewPlayerScript : MonoBehaviour
     {
         bulletsLeft--;
         bulletShoot++;
-
+        //Creating a new ray from the gun muzzle with a angle of the weapon
         Ray ray = new Ray(gunMuzzle.transform.position, gunRotation.transform.forward);
         RaycastHit hit;
         Vector3 targetPoint;
@@ -52,7 +52,7 @@ public class NewPlayerScript : MonoBehaviour
         if(Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point;
-            collision = hit.point; //Debug
+            collision = hit.point; //Debug...
         }
         else
         {
@@ -77,7 +77,7 @@ public class NewPlayerScript : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(collision, 0.2f);
     }
 }

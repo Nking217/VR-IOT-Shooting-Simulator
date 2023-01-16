@@ -22,25 +22,18 @@ public class smallbulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        checkHit();
+    }
+  
 
+    void checkHit()
+    {
         float distance = Vector3.Distance(bullet.transform.position, TargetPosition);
-
         Debug.Log(distance);
         if (distance <= 1)
         {
-            Destroy(bullet);
             SerialManager.sendHitConfirmation();
-            //Hit confirmation...
-            // serialPort.WriteLine("HIT");
-
         }
-
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Destroy(bullet);
-        //Debug.Log("Hit");
-        //SerialManager.sendHitConfirmation();
     }
 
 
