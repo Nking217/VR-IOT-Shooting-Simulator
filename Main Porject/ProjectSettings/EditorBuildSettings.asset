@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Gun Test 1.unity
     guid: 57c50c1e05d847c49b5f2395bd0a5b9a
   - enabled: 1
-    path: Assets/SimpleNaturePack_Demo.unity
+    path: Assets/Scenes/SimpleNaturePack_Demo.unity
     guid: f5d7769c874f4ed4a8a85c605f2ace0f
   - enabled: 1
     path: Assets/Scenes/Home Screen.unity
