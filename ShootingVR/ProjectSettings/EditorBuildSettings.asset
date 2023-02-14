@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Gun Test 1.unity
+    guid: 57c50c1e05d847c49b5f2395bd0a5b9a
+  - enabled: 1
+    path: Assets/Scenes/Shooting Range Test.unity
+    guid: bd748a9d69872a940ae4742ae44de5de
+  - enabled: 1
+    path: Assets/Scenes/LoginPage.unity
+    guid: 95f3d71339066dd489b602e14e2fbdf7
+  - enabled: 1
+    path: Assets/Scenes/Map Select.unity
+    guid: 23772eb1d4048334aa4523788d7555ec
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 25648298c600dd34f86d9352dbcdac32, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c6b3dfe6efb1bd542b1c8a955d98b5b8, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 19bbe01bca080284090b1334e59d332f, type: 2}
