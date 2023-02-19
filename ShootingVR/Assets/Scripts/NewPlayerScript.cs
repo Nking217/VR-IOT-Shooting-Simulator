@@ -24,31 +24,28 @@ public class NewPlayerScript : MonoBehaviour
     }
     void Start()
     {
-        //SerialManager.serialOpen();
+        SerialManager.serialOpen();
     }
 
     void Update()
     {
-        // MyInput();
+        MyInput();
 
-        if (Input.GetKeyDown("space"))
-        {
-            Debug.Log("Shooting noder");
-            Shoot();
-        }
+        
     }
     private void MyInput() //Adding reloading time and magazine count later...
     {
-        /*
+        
         if (SerialManager.checkTrigger())
         {
             Shoot();
         }
-        */
+        /*
         if(Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
+        */
     }
 
     void Shoot()
