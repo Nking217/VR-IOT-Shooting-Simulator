@@ -10,7 +10,7 @@ using UnityEditor.PackageManager;
 
 public class SerialManager : MonoBehaviour
 {
-    public static SerialPort serialPort1 = new SerialPort("COM4", 115200);
+    public static SerialPort serialPort1 = new SerialPort("COM3", 115200);
     // Start is called before the first frame update
     void Start()
     {
