@@ -45,7 +45,4 @@ public class bulletScript : MonoBehaviour
         //Debug.Log("Hit");
         //SerialManager.sendHitConfirmation();
     }
-
-
-
 }

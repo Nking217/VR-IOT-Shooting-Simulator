@@ -147,14 +147,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4ca50cea30efd4c8cab4679caaaa17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastCollision: {fileID: 0}
+  bodyShotCenterRadius: 0.163
+  bodyShotWideRadius: 0.239
+  headShotRadius: 0.081
   rb: {fileID: 7065301632097203603}
   explosion: {fileID: 0}
-  targetPosition: {x: 11, y: 2.4865, z: 0.872}
   bullet: {fileID: 7065301632097203608}
   bounciness: 0
   useGravity: 0
   explosionDamage: 40
-  explosionRange: 0.01
+  explosionRange: -0.33
   maxColissions: 1
   maxLifetime: 4
   explodeOnTouch: 1

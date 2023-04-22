@@ -1,18 +1,20 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class NewBulletScript : MonoBehaviour
 {
-    
+    public GameObject lastCollision;
+    [Range(0f, 1f)]
+    public float bodyShotCenterRadius, bodyShotWideRadius, headShotRadius; //Setting radius for hitting areas on target
+
     public Rigidbody rb;
     public GameObject explosion;
     GameObject particleObject;
-    //public GameObject targetPosition;
-    public Vector3 targetPosition;
     public GameObject bullet;
     [Range(0f, 1f)]
     public float bounciness;
     public bool useGravity;
-    ParticleSystem particleSystem;
     public int explosionDamage; //Useless
     public float explosionRange;
 
@@ -21,7 +23,6 @@ public class NewBulletScript : MonoBehaviour
     public bool explodeOnTouch = true;
     int collisions;
     PhysicMaterial physics_mat;
-
 
     // Start is called before the first frame update
     void Start()
@@ -64,17 +65,8 @@ public class NewBulletScript : MonoBehaviour
 
     private void Explode()
     {
-        
-        if (explosion != null)
-        {
-            particleObject = Instantiate(explosion, transform.position, Quaternion.identity);
-            particleSystem = particleObject.GetComponent<ParticleSystem>();
-        }
-        
-
-
         //Instantiate explosion
-        //if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
         
         Invoke("Delay", 0.05f);
     }
@@ -82,10 +74,7 @@ public class NewBulletScript : MonoBehaviour
     private void Delay()
     {
         Debug.Log("Delay has finished");
-        checkHit();
         Destroy(gameObject);
-        particleSystem.Stop();
-        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -95,18 +84,42 @@ public class NewBulletScript : MonoBehaviour
 
         //Count up collisions
         collisions++;
-    }
-    void checkHit()
-    {
-        float distance = Vector3.Distance(gameObject.transform.position, targetPosition);
-        //Debug.Log(distance);
-        if (distance <= 1)
+        if (collision.collider.CompareTag("Target")) //Check if the bullet has hit a target
         {
-            //SerialManager.sendHitConfirmation();
-            GameManager.totalPoints += 1;
-            Debug.Log("elad muzar: " + GameManager.totalPoints);
+            GameManager.totalHits++; //Adding up target hits for scoreing
+            lastCollision = collision.collider.gameObject;
+            checkScore(lastCollision); //Running function for checking the score if you hit a target
 
-
+            //Run function for score
         }
     }
+ 
+    void checkScore(GameObject targetObject)
+    {
+        Vector3 headShotPosition = targetObject.transform.GetChild(1).transform.position;
+        Vector3 bodyShotPosition = targetObject.transform.GetChild(0).transform.position;
+        float distanceFromHead = Vector3.Distance(gameObject.transform.position, headShotPosition);
+        float distanceFromBody = Vector3.Distance(gameObject.transform.position, bodyShotPosition);
+        if(distanceFromHead <= headShotRadius)
+        {
+            Debug.Log("Head Shot");
+            GameManager.headShotHits += 1;
+            //Add one headShot Point
+        }
+        if(distanceFromBody <= bodyShotWideRadius)
+        {
+            if(distanceFromBody > bodyShotCenterRadius) {
+                //Add one wide radius point
+                Debug.Log("Body shot, wide.");
+                GameManager.centerBodyHits += 1;
+            }
+            else
+            {
+                Debug.Log("Body shot, center mass.");
+                //Add one small radius point
+                GameManager.wideBodyHits += 1;
+            }
+        }
+    }
+
 }

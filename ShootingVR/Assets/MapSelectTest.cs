@@ -16,6 +16,7 @@ public class MapSelectTest : MonoBehaviour
     private FirebaseFirestore db;
     public TextMeshProUGUI usernamefiled;
     public TextMeshProUGUI totalcoinsfiled;
+    public bool timeEnterd;
     // Start is called before the first frame update
 
     public static string Reverse(string Input)
@@ -82,4 +83,6 @@ public class MapSelectTest : MonoBehaviour
             return coins;
         }
     }
+    
+
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 using TMPro;
 public class NewPlayerScript : MonoBehaviour
 {
+    public GameObject lastHit;
+    public GameObject lastHitPosition;
+
     public GameObject gun;
     public GameObject bullet;
     public GameObject gunRotation;
@@ -37,10 +40,6 @@ public class NewPlayerScript : MonoBehaviour
     void Update()
     {
         MyInput();
-        
-
-        //Debug.Log(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-        
         //Set Ammo display
         if(ammunationDisplay != null)
         {
@@ -48,14 +47,10 @@ public class NewPlayerScript : MonoBehaviour
         }                                                                                                                                                              
         
     }
-    private void MyInput() //Adding reloading time and magazine count later...
+    private void MyInput()
     {
-
-        
-        shooting = SerialManager.checkTrigger(); //Input from ESP
-        
-
         //Shooting
+        shooting = SerialManager.checkTrigger(); //Input from ESP
         //shooting = Input.GetKeyDown(KeyCode.Space); //Keyboad test input for shooting
 
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
@@ -65,7 +60,7 @@ public class NewPlayerScript : MonoBehaviour
         }
 
         //Reloading
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload(); //Reloading from keyboard (Bonus reload button from ESP)...
         //Automatic reload when trying to shoot without ammo
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
     }
@@ -124,6 +119,7 @@ public class NewPlayerScript : MonoBehaviour
 
         bulletsLeft--;
         bulletShot++;
+        GameManager.bulletsShot++; //for scoreing calculation
 
         if (allowInvoke)
         {
@@ -155,6 +151,4 @@ public class NewPlayerScript : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(collision, 0.2f);
     }
-
-    
 }
