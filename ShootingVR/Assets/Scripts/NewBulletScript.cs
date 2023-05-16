@@ -7,7 +7,7 @@ public class NewBulletScript : MonoBehaviour
     public GameObject lastCollision;
     [Range(0f, 1f)]
     public float bodyShotCenterRadius, bodyShotWideRadius, headShotRadius; //Setting radius for hitting areas on target
-
+    public TextMeshPro lastHitText;
     public Rigidbody rb;
     public GameObject explosion;
     GameObject particleObject;
@@ -73,7 +73,7 @@ public class NewBulletScript : MonoBehaviour
 
     private void Delay()
     {
-        Debug.Log("Delay has finished");
+        //Debug.Log("Delay has finished");
         Destroy(gameObject);
     }
 
@@ -103,7 +103,10 @@ public class NewBulletScript : MonoBehaviour
         if(distanceFromHead <= headShotRadius)
         {
             Debug.Log("Head Shot");
-            GameManager.headShotHits += 1;
+            GameManager.headShotHits++;
+            lastHitText.SetText("Last Hit: Head");
+            Debug.Log("Total Head Hits: " + GameManager.headShotHits);
+            SerialManager.sendHitConfirmation();
             //Add one headShot Point
         }
         if(distanceFromBody <= bodyShotWideRadius)
@@ -111,13 +114,17 @@ public class NewBulletScript : MonoBehaviour
             if(distanceFromBody > bodyShotCenterRadius) {
                 //Add one wide radius point
                 Debug.Log("Body shot, wide.");
-                GameManager.centerBodyHits += 1;
+                GameManager.centerBodyHits++;
+                lastHitText.SetText("Last Hit: Center Body");
+                Debug.Log("Total Body Center Hits: " + GameManager.centerBodyHits);
             }
             else
             {
                 Debug.Log("Body shot, center mass.");
                 //Add one small radius point
-                GameManager.wideBodyHits += 1;
+                GameManager.wideBodyHits++;
+                lastHitText.SetText("Last Hit: Wide Body");
+                Debug.Log("Total Body Wide Hits: " + GameManager.wideBodyHits);
             }
         }
     }
